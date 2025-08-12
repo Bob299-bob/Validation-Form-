@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .head{
+                width: 100%;
+                height:200px ;
+                border: 1px solid black;
+            }
+            .middle{
+                width:100%;
+                height:600px;
+                border:1px solid brown;
+                background-image: url("back.jpg");
+            }
+            .footer{
+                width:100%;
+                height:200px;
+                border: 1px solid black;
+                background-image: url('io.jpg');
+            }
+            .btn{
+                text-decoration: none;
+                font-weight: bold;
+                font-style: italic;
+                padding:10px;
+                margin-left: 90%;
+                margin-top: 20px;
+                background-color: burlywood;
+            }
+            .btn:hover{
+
+                background-color: brown;
+            }
+            .form-container{
+                display: none;
+                position: fixed;
+                border: 1px solid black;
+                right: 10%;
+            }
+            .Fo{
+                border: 1px solid black;
+                max-width: 200px;
+                background-color: burlywood;
+            }
+            #pic2{
+                display: none;
+            }
+            .pre,.next{
+                margin-left: 30%;
+                background-color:whitesmoke;
+                font-size: large;
+                font-weight: bold;
+                font-style: oblique;
+            }
+            .pre:hover,.next:hover{
+                background-color: burlywood;
+            }
+            .slide{
+                background-color: black;
+            }
+            .info{
+                border: 1px solid black;
+                width: 20%;
+                height:68%;
+            }
+            a{
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
+            }
+            a:hover{
+
+                background-color: antiquewhite;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="head">
+            <div class="slide">
+                <div id="pic1">
+                    <img src="io.jpg" height="170px" width="100%">
+                </div>
+                <div id="pic2">
+                    <img src="io2.jpg" height="170px" width="100%">
+                </div>
+                <button class="pre" onclick="prev()">Prev</button>
+                <button class="next" onclick="next()">Next</button>
+            </div>
+        </div>
+        <div class="middle">
+            <script>
+                function validation(){
+                    let x=document.forms["LBS"]["fname"].value;
+                    if(x==""){
+                        alert("Name is empty");
+                        return false;
+                    }
+                }
+                function openForm(){
+                    document.getElementById("myForm").style.display="block";
+                }
+                function closeForm(){
+                    document.getElementById("myForm").style.display="none";
+                }
+                function next(){
+                    document.getElementById("pic2").style.display="block";
+                    document.getElementById("pic1").style.display="none";
+                }
+                function prev(){
+                    document.getElementById("pic2").style.display="none";
+                    document.getElementById("pic1").style.display="block";
+                }
+            </script>
+            <button class="btn" onclick="openForm()">Register</button>
+            <div class="form-container" id="myForm">
+                <form class="Fo" name="LBS" onsubmit="return validation()" method="post">
+                    <label>Name*</label>
+                    <input type="text" name="fname">
+                    <label>Contact Number</label>
+                    <input type="number" name="cont">
+                    <input type="submit" name="submit" onclick="closeForm()" style="background-color: cadetblue;">
+                </form> 
+            </div>
+            <div class="info">
+                <h2 style="color: burlywood;">We are Welcoming You At Our Channel:
+                <a href="https://www.ndtv.com/">Tap to get our New Feeds</a></h2>
+                <marquee direction="up" behavior="" style="padding: 10px; top: 10px;">
+                <h1>Recent News</h1>
+                <h1> Today's Special</h1>
+                <h1> Up Special</h1>
+                <h1>National News</h1>
+                </marquee>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </body>
+</html>
